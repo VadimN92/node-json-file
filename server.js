@@ -19,7 +19,7 @@ app.get('/api/:jsonFileName', (req, res) => {
 
     fs.readFile(jsonFileName, 'utf8', (err, data) => {
         if (err) {
-            res.status(400).send('JSON file do not found');
+            res.status(404).end();
         } else {
             res.status(200).json(JSON.parse(data));
         }
